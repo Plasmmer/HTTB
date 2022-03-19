@@ -4,7 +4,10 @@ An HTTP server purely written in ![Bash](https://img.shields.io/badge/-Bash-1f42
 
 "HTTB" stands for Hyper Text Transfer Bash. 
 
-This is just a toy to see if I could do it, and you definitely can write a web server as a shell script!
+Initially this was just a toy for @Krowemoh see if they could do it, and definitely this project proved you can write a more-than-basic web server as a shell script!
+
+More-than-basic server because it can handle requests, file requests, display 404 error messages and manage user logins/sessions.
+Soon™: support to signups.
 
 Blog post at:
 
