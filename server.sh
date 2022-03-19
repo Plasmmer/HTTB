@@ -12,7 +12,23 @@ while true; do
 #  | nc -l -k -p 8080 -q 1;
 #  nc -l 8080 | cat - | grep -o '{...\+}' \
 #  | nc -l -k -p 8080 -q 1;
-  nc -l -k -p 8080 -q 1 | cat - | grep -o '{...\+}';
+#   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
+#  | nc -l -k -p 8080 -q 1;
+#  nc -l -k -p 8080 -q 1 & | cat - | grep -o '{...\+}';
+#  cat - | grep -o '{...\+}' < nc -l -k -p 8080 -q 1;
+#echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
+#  | nc -l -k -p 8080 -q 1 &
+#   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1><p>$(date)</p><br><input type=\"submit\" value=\"Submit\">" \
+#  | nc -l -k -p 8080 -q 1;
+#   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1><p>$(date)</p>"
+#  | nc -l -k -p 8080 -q 1;
+#   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
+#  | nc -l -k -p 8080 -q 1 | cat - | grep -o '{...\+}';
+#   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
+#  | nc -l -k -p 8080 -q 1 & | cat - | grep -o '{...\+}';
+#   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
+#  | nc -l -k -p 8080 -q 1 | cat - | grep -o '{...\+}';
    echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
   | nc -l -k -p 8080 -q 1;
+  nc -l -k -p 8080 -q 1 | cat - | grep -o '{...\+}';
 done
