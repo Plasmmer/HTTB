@@ -5,6 +5,10 @@ declare -r CR_LF="${CR}${LF}"
 
 declare -r DEBUG=1
 
+declare -A function_dictionary=(
+    [login]=login
+)
+
 log() {
     if [ $DEBUG = 1 ]
     then
@@ -64,6 +68,20 @@ handle_requested_resource() {
     fi
 
     log "$request_body"
+
+    requested_resource="${resource:1}"
+
+    for x in "${!function_dictionary[@]}"
+    do
+        if [[ "$requested_resource" =~ $x ]]
+        then
+            ${function_dictionary[$x]}
+        fi
+    done
+
+    send_file "./app/404.html"
+
+#    log "$request_body"
 }
 
 send_file() {
