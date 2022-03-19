@@ -28,7 +28,8 @@ while true; do
 #  | nc -l -k -p 8080 -q 1 & | cat - | grep -o '{...\+}';
 #   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
 #  | nc -l -k -p 8080 -q 1 | cat - | grep -o '{...\+}';
-   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
-  | nc -l -k -p 8080 -q 1;
-  nc -l -k -p 8080 -q 1 | cat - | grep -o '{...\+}';
+#   echo -e "HTTP/1.1 200 OK\n\n<h1>Title</h1>$(date)" \
+#  | nc -l -k -p 8080 -q 1;
+#  nc -l -k -p 8080 -q 1 | cat - | grep -o '{...\+}';
+ncat -l 0.0.0.0 8080 --sh-exec "bash newserver.sh"
 done
