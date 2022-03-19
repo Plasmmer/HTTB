@@ -15,7 +15,7 @@ declare -A function_dictionary=(
 )
 
 serve() {
-    nc --listen --keep-open 0.0.0.0 7999 --sh-exec "./server.sh process"
+    ncat --listen --keep-open 0.0.0.0 8080 --sh-exec "httb process"
 }
 
 log() {
