@@ -68,6 +68,11 @@ handle_requested_resource() {
     fi
 
     log "$request_body"
+#    echo "$request_body" | jq -r '.name'
+#    echo "$request_body" | jq -r '.age'
+    json_username="$(echo "$request_body" | jq -r '.name')"
+    json_age="$(echo "$request_body" | jq -r '.age')"
+    log "Name: $json_username | Age: $json_age"
 
     requested_resource="${resource:1}"
 
@@ -148,6 +153,7 @@ set_response_headers() {
     connection="Connection: Closed"
 
     response_headers="${version}$CR_LF${date}$CR_LF${cookies}$CR_LF$1$CR_LF$2$CR_LF${connection}"
+#    response_headers="${version}$CR_LF${date}$CR_LF${cookies}$CR_LF$1$CR_LF$2$CR_LF${connection}\n\n"
 }
 
 build_response() {
@@ -156,6 +162,8 @@ build_response() {
 
 send_response() {
     printf -- "$1$CR_LF"
+#    printf -- "\n\n$1$CR_LF"
+#    printf -- "$1$CR_LF\n\n"
     exit
 }
 
@@ -175,6 +183,25 @@ get_request_body() {
     if [ "$post_length" -ne 0 ]
     then
         IFS= read -n "$post_length" request_body
+    fi
+}
+
+login() {
+    if [ "$request_type" = "GET" ]
+    then
+        send_file "./app/login.html"
+
+    else
+        username=$(echo -n "$request_body" | cut -d'&' -f1 | cut -d'=' -f2)
+        password=$(echo -n "$request_body" | cut -d'&' -f2 | cut -d'=' -f2)
+
+        if [ "$password" = "123" ]
+        then
+            session_id=$(uuidgen)
+            touch "./sessions/$session_id"
+            cookies="Set-cookie: session_id=$session_id"
+        fi
+        send_file "./app/account.html"
     fi
 }
 
