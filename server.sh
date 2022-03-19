@@ -22,9 +22,12 @@ process() {
 
     get_request_headers
 
+    get_request_body
+
     handle_requested_resource
 
-    echo -e "<html><head></head><body><h1>Hello, World!</h1><p>It's like the early times of the Internet... ...but we are building the Web 3.0, actually.</p></body></html>"
+#    echo -e "<html><head></head><body><h1>Hello, World!</h1><p>It's like the early times of the Internet... ...but we are building the Web 3.0, actually.</p></body></html>"
+    echo -e "HTTP/1.1 200 OK\n\n<html><head></head><body><h1>Hello, World!</h1><p>It's like the early times of the Internet... ...but we are building the Web 3.0, actually.</p></body></html>"
     log "Hello, Error"
 }
 
@@ -48,6 +51,7 @@ get_request_headers() {
 }
 
 handle_requested_resource() {
+
     regexp=".* (.*) HTTP"
     [[ "${request_headers[0]}" =~ $regexp ]]
 
@@ -56,9 +60,10 @@ handle_requested_resource() {
     requested_resource="./app$resource"
     if [ -f "$requested_resource" ]
     then
-#        cat "$requested_resource"
         send_file "$requested_resource"
     fi
+
+    log "$request_body"
 }
 
 send_file() {
@@ -134,6 +139,25 @@ build_response() {
 send_response() {
     printf -- "$1$CR_LF"
     exit
+}
+
+get_request_body() {
+    request_type="$(echo "${request_headers[0]}" | cut -d" " -f1)"
+
+    post_length=0
+    for i in "${request_headers[@]}"
+    do
+        header=$(cut -d":" -f1 <<< "$i")
+        if [ "$header" = "Content-Length" ]
+        then
+            post_length=$(echo "$i" | cut -d":" -f2 | tr -d "$CR" | tr -d "$LF" | tr -d ' ')
+        fi
+    done
+
+    if [ "$post_length" -ne 0 ]
+    then
+        IFS= read -n "$post_length" request_body
+    fi
 }
 
 "$1"
