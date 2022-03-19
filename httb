@@ -96,6 +96,11 @@ handle_requested_resource() {
     then
         send_file "$requested_resource"
     fi
+    
+    log "$request_body"
+    json_username="$(echo "$request_body" | jq -r '.name')"
+    json_age="$(echo "$request_body" | jq -r '.age')"
+    log "Name: $json_username | Age: $json_age"
 
     requested_resource="${resource:1}"
 
