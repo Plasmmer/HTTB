@@ -23,7 +23,7 @@ This server shouldn't be used in large sites (about security and speed probably)
 Initially this was just a toy for [@Krowemoh](https://github.com/Krowemoh/bash-server) see if they could do it, and definitely this project proved you can write a more-than-basic web server as a shell script!
 
 "More-than-basic" server because it can manage user logins/sessions directly from a JSON file, handle requests, file requests, display 404 error messages.
-Soon™: support to signups.
+Soon™: support to Web3.
 
 Blog post at:
 
