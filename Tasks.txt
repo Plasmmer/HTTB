@@ -8,10 +8,6 @@
 
 - fix custom/handle_requested_resource.sh
 
-- fix reading htmlfolder from config file
-
-- config file: port
-
 - MOVED TO: https://github.com/Plasmmer/HTTB/issues/4
 
 - test compiling to c with "shc -f httb" and from the C source, to Rust🔥

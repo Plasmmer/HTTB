@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-htmlfolder="/var/www/html"
-#htmlfolder="$(jq -r '.htmlfolder' /etc/httb/httb.conf.json)"
+#htmlfolder="/var/www/html"
+htmlfolder="$(jq -r '.htmlfolder' /etc/httb/httb.conf.json)"
 serverport="$(jq -r '.port' /etc/httb/httb.conf.json)"
 
 declare -r CR=$'\r'
