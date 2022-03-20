@@ -223,7 +223,7 @@ signup() {
 
         if ! jq -r ".$username[]" /usr/lib/httb/custom/db/users.json # if the choosen username doesn't already exist, enable signup and register user
         then
-            tmp="$(mktemp)"; cat /usr/lib/httb/custom/db/users.json | jq ". + {"\"$username\"":{\"id\":\"\",\"pw\":\"$(echo -n "$password" | sha256sum | cut -d' ' -f1)\"}}" >"$tmp" && mv "$tmp" /1/config/tokens.json
+            tmp="$(mktemp)"; cat /usr/lib/httb/custom/db/users.json | jq ". + {"\"$username\"":{\"id\":\"\",\"pw\":\"$(echo -n "$password" | sha256sum | cut -d' ' -f1)\"}}" >"$tmp" && mv "$tmp" /usr/lib/httb/custom/db/users.json
             mkdir /usr/lib/httb/custom/db/users/$username
             render_template "$htmlfolder/signup-success.html"
             send_html "$template"
