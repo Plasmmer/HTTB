@@ -1,4 +1,4 @@
-- signup: add its entry with username in users.json adding +1 to ID, and password's hash; also add to users/username. Git commit on every new signup. Message: -m "Register new Web 2.0 user" -m "Username: $Username" -m "ID: $ID"
+- signup: add its entry adding +1 to ID in users.json. Git commit on every new signup. Message: -m "Register new Web 2.0 user" -m "Username: $Username" -m "ID: $ID"
 
 This server shouldn't be used in large sites, but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL.
 

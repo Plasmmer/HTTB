@@ -10,6 +10,7 @@ declare -r CR_LF="${CR}${LF}"
 declare -r DEBUG=1
 
 declare -A function_dictionary=(
+    [signup]=signup
     [login]=login
     [signout]=signout
     ["^comics$"]=comics
@@ -208,6 +209,29 @@ render_template() {
     $(cat "$1")
 END
 ")
+}
+
+signup() {
+    if [ "$request_type" = "GET" ]
+    then
+        content="$(cat $htmlfolder/signup.html)"
+        send_html "$content"
+
+    else
+        username=$(echo -n "$request_body" | cut -d'&' -f1 | cut -d'=' -f2)
+        password=$(echo -n "$request_body" | cut -d'&' -f2 | cut -d'=' -f2)
+
+        if ! jq -r ".$username[]" /usr/lib/httb/custom/db/users.json # if the choosen username doesn't already exist, enable signup and register user
+        then
+            tmp="$(mktemp)"; cat /usr/lib/httb/custom/db/users.json | jq ". + {"\"$username\"":{\"id\":\"\",\"pw\":\"$(echo -n "$password" | sha256sum | cut -d' ' -f1)\"}}" >"$tmp" && mv "$tmp" /1/config/tokens.json
+            mkdir /usr/lib/httb/custom/db/users/$username
+            render_template "$htmlfolder/signup-success.html"
+            send_html "$template"
+        else
+            render_template "$htmlfolder/signup-error.html"
+            send_html "$template"
+        fi
+    fi
 }
 
 login() {
