@@ -6,7 +6,8 @@ sudo cp -f httb /usr/bin/httb
 
 sudo mkdir /usr/lib/httb
 sudo cp -f README.md /usr/lib/httb/README.md
-sudo cp -rf custom /usr/lib/httb/custom/
+#sudo cp -rf custom /usr/lib/httb/custom/
+rsync -av custom/ /usr/lib/httb/custom
 #mkdir /usr/lib/httb/custom/db
 
 mkdir /var/www
