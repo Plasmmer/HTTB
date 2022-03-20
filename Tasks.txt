@@ -2,6 +2,8 @@
 
 - Error page in case of wrong login
 
+- Change directory of "sessions"
+
 - Route "/" to index.html or index.htm or other
 
 - Support for signup, storing users in a JSON file and their data in their own folder (login will only validate registered user, and will use hash instead of plain password)
