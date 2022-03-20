@@ -28,7 +28,7 @@ log() {
 check_session() {
     if [ ! -f "./sessions/$session_id" ]
     then
-        render_template "./app/login.html"
+        render_template "/var/www/html/login.html"
         send_html "$template"
     fi
 }
@@ -91,7 +91,7 @@ handle_requested_resource() {
 
     resource=$(printf "%s" "${BASH_REMATCH[1]}" | sed 's/%20/ /g' | sed "s/%27/'/g")
 
-    requested_resource="./app$resource"
+    requested_resource="/var/www/html$resource"
     if [ -f "$requested_resource" ]
     then
         send_file "$requested_resource"
@@ -112,7 +112,7 @@ handle_requested_resource() {
         fi
     done
 
-    render_template "./app/404.html"
+    render_template "/var/www/html/404.html"
     send_html "$template"
 }
 
@@ -213,7 +213,7 @@ END
 login() {
     if [ "$request_type" = "GET" ]
     then
-        content="$(cat ./app/login.html)"
+        content="$(cat /var/www/html/login.html)"
         send_html "$content"
 
     else
@@ -226,7 +226,7 @@ login() {
             touch "./sessions/$session_id"
             cookies="Set-cookie: session_id=$session_id"
         fi
-        render_template "./app/account.html"
+        render_template "/var/www/html/account.html"
         send_html "$template"
     fi
 }
@@ -238,20 +238,20 @@ signout() {
         session_id=""
         cookies="Set-cookie: session_id=$session_id"
     fi
-    render_template "./app/login.html"
+    render_template "/var/www/html/login.html"
     send_html "$template"
 }
 
 comics() {
     check_session
-    render_template "./app/comics.html"
+    render_template "/var/www/html/comics.html"
     send_html "$template"
 }
 
 issues() {
     check_session
     comic_name="${BASH_REMATCH[1]}"
-    render_template "./app/issues.html"
+    render_template "/var/www/html/issues.html"
     send_html "$template"
 }
 
@@ -259,7 +259,7 @@ issue() {
     check_session
     comic_name="${BASH_REMATCH[1]}"
     issue_number="${BASH_REMATCH[2]}"
-    render_template "./app/issue.html"
+    render_template "/var/www/html/issue.html"
     send_html "$template"
 }
 
