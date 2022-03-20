@@ -1,5 +1,7 @@
 - If the submited password's hash is equal the stored hash, login
 
+- Store site folder in variable
+
 - Route "/" to index.html or index.htm or other
 
 - Support for signup, storing users in a JSON file and their data in their own folder (login will only validate registered user, and will use hash instead of plain password)
