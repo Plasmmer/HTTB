@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+htmlfolder="/var/www/html"
+
 declare -r CR=$'\r'
 declare -r LF=$'\n'
 declare -r CR_LF="${CR}${LF}"
@@ -28,7 +30,7 @@ log() {
 check_session() {
     if [ ! -f "./sessions/$session_id" ]
     then
-        render_template "/var/www/html/login.html"
+        render_template "$htmlfolder/login.html"
         send_html "$template"
     fi
 }
@@ -91,7 +93,7 @@ handle_requested_resource() {
 
     resource=$(printf "%s" "${BASH_REMATCH[1]}" | sed 's/%20/ /g' | sed "s/%27/'/g")
 
-    requested_resource="/var/www/html$resource"
+    requested_resource="$htmlfolder$resource"
     if [ -f "$requested_resource" ]
     then
         send_file "$requested_resource"
@@ -109,7 +111,7 @@ handle_requested_resource() {
         fi
     done
 
-    render_template "/var/www/html/404.html"
+    render_template "$htmlfolder/404.html"
     send_html "$template"
 }
 
@@ -210,7 +212,7 @@ END
 login() {
     if [ "$request_type" = "GET" ]
     then
-        content="$(cat /var/www/html/login.html)"
+        content="$(cat $htmlfolder/login.html)"
         send_html "$content"
 
     else
@@ -222,10 +224,10 @@ login() {
             session_id=$(uuidgen)
             touch "./sessions/$session_id"
             cookies="Set-cookie: session_id=$session_id"
-            render_template "/var/www/html/account.html"
+            render_template "$htmlfolder/account.html"
             send_html "$template"
         else
-            render_template "/var/www/html/login-error.html"
+            render_template "$htmlfolder/login-error.html"
             send_html "$template"
         fi
     fi
@@ -238,20 +240,20 @@ signout() {
         session_id=""
         cookies="Set-cookie: session_id=$session_id"
     fi
-    render_template "/var/www/html/login.html"
+    render_template "$htmlfolder/login.html"
     send_html "$template"
 }
 
 comics() {
     check_session
-    render_template "/var/www/html/comics.html"
+    render_template "$htmlfolder/comics.html"
     send_html "$template"
 }
 
 issues() {
     check_session
     comic_name="${BASH_REMATCH[1]}"
-    render_template "/var/www/html/issues.html"
+    render_template "$htmlfolder/issues.html"
     send_html "$template"
 }
 
@@ -259,7 +261,7 @@ issue() {
     check_session
     comic_name="${BASH_REMATCH[1]}"
     issue_number="${BASH_REMATCH[2]}"
-    render_template "/var/www/html/issue.html"
+    render_template "$htmlfolder/issue.html"
     send_html "$template"
 }
 
