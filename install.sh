@@ -9,6 +9,7 @@ sudo cp -f README.md /usr/lib/httb/README.md
 #sudo cp -rf custom /usr/lib/httb/custom/
 rsync -av custom/ /usr/lib/httb/custom
 #mkdir /usr/lib/httb/custom/db
+mkdir /usr/lib/httb/custom/sessions
 
 mkdir /var/www
 mkdir /var/www/html
