@@ -10,13 +10,13 @@ To test the example site, run `cd /var/www && git clone https://github.com/Plasm
 
 # Purpose
 
-Make it easier to power dynamic pages by using Bash instead of PHP and the Linux's filesystem instead of MySQL.
+Make it easier to power dynamic pages by using Bash instead of PHP and the Linux's filesystem/JSON files instead of MySQL.
 
 # Background
 
 Initially this was just a toy for [@Krowemoh](https://github.com/Krowemoh/bash-server) see if they could do it, and definitely this project proved you can write a more-than-basic web server as a shell script!
 
-"More-than-basic" server because it can handle requests, file requests, display 404 error messages and manage user logins/sessions.
+"More-than-basic" server because it can manage user logins/sessions directly from a JSON file, handle requests, file requests, display 404 error messages.
 Soon™: support to signups.
 
 Blog post at:
