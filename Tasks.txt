@@ -1,5 +1,3 @@
-- Store site folder in variable
-
 - config file containing html folder path
 
 - Change directory of "sessions"
