@@ -10,7 +10,11 @@ To test the example site, run `cd /var/www && git clone https://github.com/Plasm
 
 # Purpose
 
-Make it easier to power dynamic pages by using Bash instead of PHP and the Linux's filesystem/JSON files instead of MySQL.
+Make it easier to power dynamic pages by using Bash instead of PHP, and the Linux's filesystem/JSON files instead of MySQL.
+
+Its like Hugo, but you turn static HTML into dynamic! Without needing PHP nor other hard languages.
+
+This server shouldn't be used in large sites, but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL; so your product can grow with HTTB then later evolve.
 
 # Background
 
