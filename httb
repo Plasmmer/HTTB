@@ -223,9 +223,9 @@ login() {
             session_id=$(uuidgen)
             touch "./sessions/$session_id"
             cookies="Set-cookie: session_id=$session_id"
+            render_template "/var/www/html/account.html"
+            send_html "$template"
         fi
-        render_template "/var/www/html/account.html"
-        send_html "$template"
     fi
 }
 
