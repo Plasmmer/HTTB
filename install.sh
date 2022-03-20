@@ -13,6 +13,13 @@ rsync -av custom/ /usr/lib/httb/custom
 mkdir /var/www
 mkdir /var/www/html
 
+mkdir /etc/httb
+cat >> /etc/httb/httb.conf.json <<EOF
+{
+	"htmlfolder": "/var/www/html"
+}
+EOF
+
 installfail(){
    echo "Installation has failed."
    exit 1
