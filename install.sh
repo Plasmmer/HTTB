@@ -15,7 +15,7 @@ mkdir /var/www
 mkdir /var/www/html
 
 mkdir /etc/httb
-cat >> /etc/httb/httb.conf.json <<EOF
+cat > /etc/httb/httb.conf.json <<EOF
 {
 	"htmlfolder": "/var/www/html"
 }
