@@ -1,5 +1,3 @@
-- Change directory of "sessions"
-
 - fix custom/handle_requested_resource.sh
 
 - Route "/" to index.html or index.htm or other

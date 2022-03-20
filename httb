@@ -29,7 +29,7 @@ log() {
 }
 
 check_session() {
-    if [ ! -f "./sessions/$session_id" ]
+    if [ ! -f "/usr/lib/httb/custom/sessions/$session_id" ]
     then
         render_template "$htmlfolder/login.html"
         send_html "$template"
@@ -223,7 +223,7 @@ login() {
         if [ "$(echo -n "$password" | sha256sum | cut -d' ' -f1)" = "$(jq -r ".$username[].pw" /usr/lib/httb/custom/db/users.json)" ] # if the submitted password's hash is equal the hash stored in given user's entry in db, validate login
         then
             session_id=$(uuidgen)
-            touch "./sessions/$session_id"
+            touch "/usr/lib/httb/custom/sessions/$session_id"
             cookies="Set-cookie: session_id=$session_id"
             render_template "$htmlfolder/account.html"
             send_html "$template"
@@ -235,9 +235,9 @@ login() {
 }
 
 signout() {
-    if [ -f "./sessions/$session_id" ]
+    if [ -f "/usr/lib/httb/custom/sessions/$session_id" ]
     then
-        rm "./sessions/$session_id"
+        rm "/usr/lib/httb/custom/sessions/$session_id"
         session_id=""
         cookies="Set-cookie: session_id=$session_id"
     fi
