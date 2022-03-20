@@ -217,7 +217,7 @@ login() {
         username=$(echo -n "$request_body" | cut -d'&' -f1 | cut -d'=' -f2)
         password=$(echo -n "$request_body" | cut -d'&' -f2 | cut -d'=' -f2)
 
-        if [ "$password" = "123" ]
+        if [ "$(echo -n "$password" | sha256sum | cut -d' ' -f1)" = "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3" ]
         then
             session_id=$(uuidgen)
             touch "./sessions/$session_id"
