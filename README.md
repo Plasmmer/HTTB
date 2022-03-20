@@ -14,7 +14,7 @@ Make it easier to power dynamic pages by using Bash instead of PHP, and the Linu
 
 Its like Hugo, but you turn static HTML into dynamic! Without needing PHP nor other hard languages.
 
-This server shouldn't be used in large sites, but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL; so your product can grow with HTTB then later evolve.
+This server shouldn't be used in large sites (about security and speed probably), but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL; so your product can grow with HTTB then later evolve. HTTB isn't available in C/Rust (yet) and had no security audits.
 
 # Background
 
