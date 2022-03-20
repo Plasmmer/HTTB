@@ -1,7 +1,5 @@
 - Store site folder in variable
 
-- users.json, containing the first users' password hash
-
 - Error page in case of wrong login
 
 - Change directory of "sessions"
