@@ -1,7 +1,5 @@
 - Store site folder in variable
 
-- Error page in case of wrong login
-
 - Change directory of "sessions"
 
 - fix custom/handle_requested_resource.sh

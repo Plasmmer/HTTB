@@ -224,6 +224,9 @@ login() {
             cookies="Set-cookie: session_id=$session_id"
             render_template "/var/www/html/account.html"
             send_html "$template"
+        else
+            render_template "/var/www/html/login-error.html"
+            send_html "$template"
         fi
     fi
 }
