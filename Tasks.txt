@@ -1,8 +1,12 @@
 - Store site folder in variable
 
+- users.json, containing the first users' password hash
+
 - Error page in case of wrong login
 
 - Change directory of "sessions"
+
+- fix custom/handle_requested_resource.sh
 
 - Route "/" to index.html or index.htm or other
 
