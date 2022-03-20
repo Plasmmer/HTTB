@@ -17,7 +17,8 @@ mkdir /var/www/html
 mkdir /etc/httb
 cat > /etc/httb/httb.conf.json <<EOF
 {
-	"htmlfolder": "/var/www/html"
+	"htmlfolder": "/var/www/html",
+	"port": "8080"
 }
 EOF
 

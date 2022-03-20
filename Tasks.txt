@@ -1,12 +1,16 @@
 - signup: add its entry adding +1 to ID in users.json. Git commit on every new signup. Message: -m "Register new Web 2.0 user" -m "Username: $Username" -m "ID: $ID"
 
-This server shouldn't be used in large sites, but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL.
+- turn custom/db into a git repo. avoid install.sh overwritting db
 
 - redirect /login.html to /login
 
 - if user is already logged, redirect /login to the logged start page
 
 - fix custom/handle_requested_resource.sh
+
+- fix reading htmlfolder from config file
+
+- config file: port
 
 - MOVED TO: https://github.com/Plasmmer/HTTB/issues/4
 
