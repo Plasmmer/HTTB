@@ -1,5 +1,4 @@
-- httb signup form: username, password. POST method is /signup, then get the username and password; if username isnt already registered (else display signup-error.html) add its entry with username in users.json adding +1 to ID, and password's hash; also add to users/username. Git commit on every new signup. Message: -m "Register new Web 2.0 user" -m "Username: $Username" -m "ID: $ID"
-- Support for signup, storing users in a JSON file and their data in their own folder
+- signup: add its entry with username in users.json adding +1 to ID, and password's hash; also add to users/username. Git commit on every new signup. Message: -m "Register new Web 2.0 user" -m "Username: $Username" -m "ID: $ID"
 
 This server shouldn't be used in large sites, but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL.
 
