@@ -1,6 +1,4 @@
-- Read pages from /var/www/html
-
-- If the submited password's CID (hash) is equal the stored CID, login
+- If the submited password's hash is equal the stored hash, login
 
 - Route "/" to index.html or index.htm or other
 
