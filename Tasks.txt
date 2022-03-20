@@ -1,6 +1,16 @@
+- httb signup form: username, password. POST method is /signup, then get the username and password; if username isnt already registered (else display signup-error.html) add its entry with username in users.json adding +1 to ID, and password's hash; also add to users/username. Git commit on every new signup. Message: -m "Register new Web 2.0 user" -m "Username: $Username" -m "ID: $ID"
+- Support for signup, storing users in a JSON file and their data in their own folder
+
+This server shouldn't be used in large sites, but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL.
+
+- redirect /login.html to /login
+
+- if user is already logged, redirect /login to the logged start page
+
 - fix custom/handle_requested_resource.sh
 
-- Route "/" to index.html or index.htm or other
+- MOVED TO: https://github.com/Plasmmer/HTTB/issues/4
 
-- Support for signup, storing users in a JSON file and their data in their own folder
-This server shouldn't be used in large sites, but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL.
+- test compiling to c with "shc -f httb" and from the C source, to Rust🔥
+
+- use mlq to display custom error messages in login-error.html and signup-error.html (not writing directly to these files, but pre-rendering)
