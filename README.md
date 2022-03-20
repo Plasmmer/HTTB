@@ -6,6 +6,8 @@ An HTTP server purely written in ![Bash](https://img.shields.io/badge/-Bash-1f42
 
 After installing, run `httb serve`.
 
+To test the example site, run `cd /var/www && git clone https://github.com/Plasmmer/HTTB_sample-site html`
+
 # Purpose
 
 Make it easier to power dynamic pages by using Bash instead of PHP and the Linux's filesystem instead of MySQL.
