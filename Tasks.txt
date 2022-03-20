@@ -1,4 +1,8 @@
 - Read pages from /var/www/html
 
+- If the submited password's CID (hash) is equal the stored CID, login
+
+- Route "/" to index.html or index.htm or other
+
 - Support for signup, storing users in a JSON file and their data in their own folder (login will only validate registered user, and will use hash instead of plain password)
 This server shouldn't be used in large sites, but as a playground for getting familiar with webservers until migrating to NodeJS/PHP and MySQL.
