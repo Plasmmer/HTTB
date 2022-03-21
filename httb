@@ -229,8 +229,11 @@ signup() {
             render_template "$htmlfolder/signup-success.html"
             send_html "$template"
         else
-            render_template "$htmlfolder/signup-error.html"
-            send_html "$template"
+            render_template "$htmlfolder/signup.html"
+            echo "$template" > /tmp/mlq_render_template.html
+            mlq_template="$(mlq '#error-msg = "<h2>Cannot create account</h2><h3>Username already exist</h3>"' /tmp/mlq_render_template.html)"
+            send_html "$mlq_template"
+            rm -f /tmp/mlq_render_template.html
         fi
     fi
 }
@@ -253,8 +256,11 @@ login() {
             render_template "$htmlfolder/account.html"
             send_html "$template"
         else
-            render_template "$htmlfolder/login-error.html"
-            send_html "$template"
+            #echo "$template" > /tmp/mlq_render_template.html
+            mlq_template="$(mlq '#error-msg = "<h2>Cannot login</h2><h3>Wrong username/password</h3>"' /tmp/mlq_render_template.html)"
+            render_template "$htmlfolder/login.html"
+            #rm -f /tmp/mlq_render_template.html
+            send_html "$mlq_template"
         fi
     fi
 }
