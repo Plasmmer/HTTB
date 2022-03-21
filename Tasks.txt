@@ -3,6 +3,9 @@
 - signup: email before username
 - login: accept both email and username
 
+- signup: Web 2.0 and Web3 tabs; in Web3 tab, form also have ETH address
+- login: Web 2.0 and Web3 tabs; in Web3 tab, form accepts only ETH address instead of email/username
+
 - signup: add its entry adding +1 to ID in users.json. Git commit on every new signup. Message: -m "Register new Web 2.0 user" -m "Username: $Username" -m "ID: $ID"
 
 - turn custom/db into a git repo. avoid install.sh overwritting db
@@ -14,6 +17,10 @@
 - fix custom/handle_requested_resource.sh
 
 - MOVED TO: https://github.com/Plasmmer/HTTB/issues/4
+
+- Support for any kind of file, which will include .svg
+
+- Support for HTTPS and Certbot plugin (test in Web3Framework)
 
 - test compiling to c with "shc -f httb" and from the C source, to Rust🔥
 
