@@ -1,4 +1,4 @@
-- link to signup at login, link to login at signup
+- use mlq to display error messages at signup and login pages
 
 - signup: email before username
 - login: accept both email and username
