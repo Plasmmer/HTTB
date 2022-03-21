@@ -10,6 +10,7 @@ sudo cp -f README.md /usr/lib/httb/README.md
 rsync -av custom/ /usr/lib/httb/custom
 #mkdir /usr/lib/httb/custom/db
 mkdir /usr/lib/httb/custom/sessions
+mkdir /usr/lib/httb/custom/db/users
 
 mkdir /var/www
 mkdir /var/www/html
