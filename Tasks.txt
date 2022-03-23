@@ -25,3 +25,5 @@
 - test compiling to c with "shc -f httb" and from the C source, to Rust🔥
 
 - use mlq to display custom error messages in login-error.html and signup-error.html (not writing directly to these files, but pre-rendering)
+
+- support for download.json
