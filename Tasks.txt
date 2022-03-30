@@ -26,4 +26,12 @@
 
 - use mlq to display custom error messages in login-error.html and signup-error.html (not writing directly to these files, but pre-rendering)
 
+httb's JSON DB at Floflis Profile site can handle somewhat like 1K simultaneous usr or some more; but before getting closer to limit, httb should abstract its own ways to handle full MySQL databases
+
 - support for download.json
+
+future feature: enter folders listing their files, using Screens Explorer (this will be linked with Screens Explorer's own task through Github). Save the comics.html page and bash functions as example
+
+support for DML
+
+if browser doesn't support DML, parse/convert and send HTML. (this will mean more server resources used)
