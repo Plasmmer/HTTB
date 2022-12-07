@@ -1,0 +1,83 @@
+! document !
+- httb add/edit site (Site Maker not available yet - add Site Maker to projmap)
+- httb config file
+- httb $variables in HTML (will be changed)
+- httb /custom (scripts, db)
+- Floflis Packager (pre-export (Kongregate), initpreview, pack; manifest.webapp, exports folder and its HTML/scripts - also exemplified in FMWK for C2) and update FMWK for C2 with these docs
+- Floflis Docs (online and other utilities/tools)
+
+Floflis Status server: temporarily disable nginx and test httb
+Works?
+Make test HTTPS site with nginx+certbot. then replace nginx to test httb's HTTPS support
+Probably httb will able to identify an HTTPS request, but won't be able to read nor send because of no handshake using the installed cert
+
+- CommonChain: install globally. work pointed at any folder. traverse between GitHub releases then re-structure the chain. pubsub, brightid prs (validate brightid before accepting data) and frnds telling new updates.
+-
+- create server for PS server 1 for testing
+- create server for PS server 2 for testing
+Each one using a different boilerplate.
+Later these servers may be merged.
+Their NodeJS script will communicate with Bash, firing event on every buck transfer (cmnchn)
+-
+PokéShowdown bot:
+- rename XPS to WPS (Wrapped PokeShowdown bucks)
+- get username that is sending a message
+- get the amount of bucks a user messaging have (commit)
+-
+- cmd to exchange bucks to XPS (ask ETH address (pre-signup) if no ETH address and validate it, check if XPS hotwallet reserve is ok, detect bucks transfer then send from hot wallet)
+- every 6 hours, detect the total supply of bucks a server have; also snapshot userlist's balances
+- cmd to exchange XPS to bucks (check if bucks reserve is ok, tell the required ETH address to send from and the ETH address to send to and also how to submit support request, detect XPS was received, then send the server's native bucks)
+-
+- Floflis Connect: store all signed (private or public)
+- command to signup so it stores user's ETH address; open Floflis Connect to sign a message then finish proof of owning
+- know if username is registered, pre-registered or new; if already registered at Floflis Accounts, send PS user (also signed msg containing username) and it will result in FLOF multiplier
+
+Floflis ETH key assist will detect GUI, then open its Electron app.
+This app will spawn a Floflis Connect popup window and begin session
+
+profile.floflis.com:
+- get profile photo from ENS (know when profile photo is normal or if NFT display in hexagon)
+- get other profile data from ENS
+- if no ENS data, enable user to fill this data so it will be stored in Web 2.0
+- future task: enable user to set NFT PFP on ENS, by creating a sign-able message that will open Floflis Connect to open a wallet sign request/window
+
+Floflis will have a post-signup method, sending sybil/ens tt and other acknowledged info with ETH signature and server will validate; if ETH signature ok, store/update data in users.json
+- httb sample web3 site: test signing messages with web3/ethers.js and console log
+- login page will try to open MetaMask/use existing web3 session then login via web3 by signing message
+- option to upgrade web 2.0 account to web 3.0
+- support for hexagonal NFT profile pic (next Floflis build)
+- httb: support to file upload (user can update profile picture and cover) with size limit for every type of request
+- request adding user as friend, option to accept request
+- notifications via Alertz
+
+- Enter Floflis Status server and copy all recent commands (useful for Floflis Server)
+
+- In separate server, install nginx, domain and https. This server will be floflisconnect.com. User logs with Web3 wallet through Web3Modal and, through its identified URL data (floflisconnect.com/popup#http://ip.ip.ip.ip:8080), send back POST data to the site that openned the popup (this data is user's ETH address and signed message with nonce)
+- httb signup form: two options: web 2.0 and web 3.0.
+Web 2.0 / Web3 tabs are also part of the Floflis Connect HTML
+if web3: open wallet through Framework Web3 and get ETH address. Use ETH address as username. All inputs will be deactivated until ETH address appears and, after that, username input remain deactivated. server will put a character limit on web 2.0 usernames, and validate web 3.0 usernames both at login/signup (starts with 0x, character count)
+- move httb floflis to new, definitive server
+- Security steps for both Floflis Profile and Floflis Connect
+- Floflis Profile annotate task: send confirmation email before proceeding with signup
+- Floflis Status server: log profile.floflis.com and floflisconnect.com status
+- Floflis Profile site will tell about the importance of backups as "passwords" cannot be reset- Floflis Packager anotate task: move application IDs to reverse format (eth.floflis.central) for next build
+Next build anotate about Floflis Central and Floflis Packager tasks. At next build, changing background will also change Floflis Profile's cover; same for Linux username and avatar
+
+- httb annotate task: support character/bytes limit on received data (character limits on post/password form, bytes limits on uploaded data/files depending on mimetype)
+
+- httb: own 404 error page unless user have sett its own (conf.json)
+- httb: use variable in login.html and signup.html to display errors
+- httb install: if /var/www/html is empty, add starter .html file
+- httb sample site: better 404 error page
+- httb initializing: check if html folder exists before running
+- httb sample site: use FrameworkJS (but merge original CSS into FrameworkJS dark theme, for FMWK r3)
+-------------------------------------------------------------------------
+- httb: move some functions to /custom as external scripts (at login/signup functions, check if there are overhides before running)
+- example site will have update.sh and install.sh
+- example site will be renamed to Framework HTTB and referenced in HTTB readme.md
+-
+- httb checks if ncat/jq/mlq are installed and if not, install (mlq will be downloaded from gh before plugz, annotate this task)
+-
+- httb logs the htmlfolder and port used, when started
+
+Floflis/Plasmmer Social/Sociflow idea: slideshow NFT PFPs: alternate between original photo and NFT constantly
