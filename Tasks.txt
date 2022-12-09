@@ -1,3 +1,5 @@
+- Welcome page http://web.archive.org/web/20221209174323/http://letrasmus.com.br/
+
 - use mlq to display error messages at signup and login pages
 
 - signup: email before username
